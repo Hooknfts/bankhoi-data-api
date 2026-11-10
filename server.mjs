@@ -245,6 +245,12 @@ app.get("/v1/trending", async (req, res) => {
 
 app.use((req, res) => res.status(404).json({ error: "not found" }));
 
-app.listen(PORT, "0.0.0.0", () => {
-  logLine(`listening on 0.0.0.0:${PORT} payTo=${PAY_TO} network=${NETWORK} price=${PRICE}`);
-});
+export default app;
+
+// Local / Render-style run: listen on PORT. On Vercel (VERCEL=1) the app is
+// served as a serverless function via api/index.js, so do not listen.
+if (!process.env.VERCEL) {
+  app.listen(PORT, "0.0.0.0", () => {
+    logLine(`listening on 0.0.0.0:${PORT} payTo=${PAY_TO} network=${NETWORK} price=${PRICE}`);
+  });
+}
