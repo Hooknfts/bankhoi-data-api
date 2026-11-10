@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_USE_ENV_PROXY=1 node server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@x402/evm": "^2.30.0",
+    "@x402/express": "^2.30.0",
+    "dns-packet": "^5.6.1",
+    "express": "^5.3.0"
+  },
+  "type": "module"
+}
